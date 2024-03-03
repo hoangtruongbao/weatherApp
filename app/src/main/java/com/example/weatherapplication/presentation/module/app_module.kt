@@ -30,7 +30,7 @@ val repositoryModules = module {
     }
 
     single(named("remotedWeather")) {
-        provideRepositoryWeather(get(named(MYID_TOKEN_API_DATA_SOURCE)))
+        provideRepositoryWeather(get(named(WEATHER_TOKEN_API_DATA_SOURCE)))
     }
 
 }
@@ -46,17 +46,17 @@ val usecaseModules = module {
 val networkModule = module {
 
     single(named(API_WEATHER)) {
-        createService<WeatherApi>(get(named(OK_HTTP_INSTANCE)), BASE_URL_MYID)
+        createService<WeatherApi>(get(named(OK_HTTP_INSTANCE)), BASE_URL_WEATHER)
     }
 
 
-    single(named(OK_HTTP_MYID)) {
+    single(named(OK_HTTP_WEATHER)) {
         createMyidOkHttpClient()
     }
 
 
     single(named(API_WEATHER_USER_SERVICE)) {
-        createService<WeatherApi>(get(named(OK_HTTP_MYID)), BASE_URL_MYID)
+        createService<WeatherApi>(get(named(OK_HTTP_WEATHER)), BASE_URL_WEATHER)
     }
 }
 
@@ -76,7 +76,7 @@ val dataSourceModule = module {
     }
 
 
-    single(named(MYID_TOKEN_API_DATA_SOURCE)) {
+    single(named(WEATHER_TOKEN_API_DATA_SOURCE)) {
         provideWeatherDataSource(get(named(API_WEATHER_USER_SERVICE)))
     }
 
@@ -92,19 +92,14 @@ val prefModule = module {
 }
 
 private const val API_WEATHER = "ApiWeather"
-private const val API_WEATHER_USER_SERVICE = "ApiWeatherIdUserServiceWithInterceptor"
+private const val API_WEATHER_USER_SERVICE = "ApiWeatherWithInterceptor"
 
 private const val OK_HTTP_INSTANCE = "OkHttp"
-private const val OFINDO_USECASE = "ofindoUsecase"
 private const val WEATHER_USECASE = "weatherUsecase"
-private const val MYID_TOKEN_API_DATA_SOURCE = "getMyidTokenApiDataSource"
-private const val GCP_API_DATA_SOURCE = "getGCPApiDataSource"
+private const val WEATHER_TOKEN_API_DATA_SOURCE = "getWeatherTokenApiDataSource"
+
 private const val PREF_HELPER = "prefHelper"
 
-private const val BASE_URL = ""
-private const val BASE_URL_MYID = "https://api.openweathermap.org/"
-private const val BASE_GCP = ""
-private const val OK_HTTP_OFINDO = "OkHttpOfindo"
-private const val OK_HTTP_MYID = "OkHttpMyid"
+private const val BASE_URL_WEATHER = "https://api.openweathermap.org/"
+private const val OK_HTTP_WEATHER = "OkHttpWeather"
 
-private const val GCP_REPO = "remoteGCP"
