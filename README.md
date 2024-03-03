@@ -11,7 +11,7 @@ Once you have it, open APIHelper in data -> base
 const val APP_ID = YOUR API HERE
 Replace "YOUR API KEY HERE" with your API Key from openweathermap.
 
-#Technologies & Methodologies which used:
+# Technologies & Methodologies which used:
 Koin
 Coroutines
 Clean Architecture
