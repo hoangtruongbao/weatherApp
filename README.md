@@ -12,8 +12,8 @@ const val APP_ID = YOUR API HERE
 Replace "YOUR API KEY HERE" with your API Key from openweathermap.
 
 # Technologies & Methodologies which used:
-Koin
-Coroutines
-Clean Architecture
-MVVM Pattern
-LiveData
+1. Koin
+2. Coroutines
+3. Clean Architecture
+4. MVVM Pattern
+5. LiveData
